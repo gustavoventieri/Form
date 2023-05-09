@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class main extends JFrame{
     JLabel nome, idade, rodape, sexo1, estado, inte;
     JTextField nome1, idade1;
-    JButton Limpar, Enviar;
+    JButton Limpar, Enviar, Sair;
     JCheckBox automovel, barcos, avioes;
     JComboBox estacivil;
     JRadioButton Masculino, Feminino;
@@ -30,6 +30,7 @@ public class main extends JFrame{
         //button
         Limpar = new JButton("Limpar Dados");
         Enviar = new JButton("Enviar Dados");
+        Sair = new JButton("Sair");
         //checkbox
         automovel = new JCheckBox("Automoveis");
         barcos = new JCheckBox("Barcos");
@@ -53,6 +54,8 @@ public class main extends JFrame{
         //button
         Limpar.setBounds(50, 330, 130, 20);
         Enviar.setBounds(180, 330, 130, 20);
+        Sair.setBounds(310, 330, 130,20);
+        Sair.setToolTipText("Fechar Janela");
         //radiobutton
         Masculino.setBounds(100, 100, 100, 20);
         Feminino.setBounds(200, 100, 100, 20);
@@ -63,6 +66,19 @@ public class main extends JFrame{
         avioes.setBounds(80, 210, 100, 20);
         //comboox
         estacivil.setBounds(80, 260, 100, 20);
+        
+         Sair.addActionListener(
+        
+        new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+           int opcao;
+           opcao = JOptionPane.showConfirmDialog(null, "Deseja mesmo fechar a janela?","Fechar", JOptionPane.YES_NO_OPTION);
+           if(opcao==JOptionPane.YES_NO_OPTION){
+               System.exit(0);
+        }
+        }
+        });
+        
         
         Limpar.addActionListener(
         
@@ -121,6 +137,7 @@ public class main extends JFrame{
         tela.add(barcos);
         tela.add(avioes);
         tela.add(estacivil);
+        tela.add(Sair);
 
         
         setResizable(false);
